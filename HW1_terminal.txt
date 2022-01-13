@@ -1,0 +1,110 @@
+1) Посмотреть где я:  
+pwd
+
+2) Создать папку:
+mkdir folder
+
+3) Зайти в папку:
+cd folder
+
+4) Создать 3 папки:
+mkdir name1 name2 name3
+
+5) Зайти в любую папку:
+cd name1
+
+6) Создать 5 файлов (3 txt, 2 json):
+touch test1.txt test2.txt test3.txt test4.json test5.json
+
+7) Создать 3 папки:
+mkdir papka1 papka2 papka3
+
+8) Вывести список содержимого папки:
+ls -la
+
+9) + Открыть любой txt файл:
+vim test1.txt
+
+10) + написать туда что-нибудь, любой текст: 
+i - входим в режим редактирования
+далее, пишем текст, например:
+my name is Luba
+I am from Spb
+
+11) + сохранить и выйти:
+esc 
+:wq
+
+12) Выйти из папки на уровень выше:
+cd ..
+
+—
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку:
+mv name1/test1.txt name1/test2.txt /c/Users/Luba/Desktop/f1/Folder/name1/papka1
+
+14) Скопировать любые 2 файла, которые вы создали, в любую другую папку: 
+cp name1/test4.json name1/test5.json /c/Users/Luba/Desktop/f1/Folder/name1/papka2
+
+15) Найти файл по имени:
+find -name 'test3.json'
+
+16) Просмотреть содержимое в реальном времени (команда grep) изучите как она работает: 
+tail -f test2.txt | grep 'Month' - вывод изменений в строках с Month в реальном времени в файле test2.txt
+less +F test2.txt - вывод изменений  в реальном времени в файле test2.txt
+
+17) Вывести несколько первых строк из текстового файла:
+head -5 test2.txt - вывод 5 первых строк
+
+18) Вывести несколько последних строк из текстового файла:
+tail -5 test2.txt - вывод 5 последних строк
+
+19) Просмотреть содержимое длинного файла (команда less) изучите как она работает:
+less papka1/test2.txt 
+Поиск: /текст
+Выход: q
+
+20) Вывести дату и время:
+date
+
+=========
+
+Задание *
+
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request:
+
+curl "http://162.55.220.72:5005/terminal-hw-request"
+
+Получаем ответ: 
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   237  100   237    0     0   2040      0 --:--:-- --:--:-- --:--:--  2060{"Intro":"Hello!! This is your the first response from server","Tasks":{"Task_1":"Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)","result":["Your_String","Your_number"]}}
+
+Выполняем второй запрос: 
+curl "http://162.55.220.72:5005/get_method?name=(Luba)&age=(34)"
+
+Получаем ответ: 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    18  100    18    0     0    129      0 --:--:-- --:--:-- --:--:--   130["(Luba)","(34)"]
+
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13  *** 
+
+vim script - создаем скрипт (без типа файла) и заходим в vim
+i - режим редактирования
+
+#!/bin/bash
+cd folder
+mkdir nameA nameB nameC
+cd nameA
+touch testA.txt testB.txt testC.json testD.json testE.json
+mkdir p_1 p_2 p_3
+ls -la
+mv testA.txt testB.txt /c/Users/Люба/Desktop/f1/Folder/nameA/p_1
+
+esc :wq - выход
+
+./script - запуск скрипта
+
+=====================
